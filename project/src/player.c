@@ -56,15 +56,21 @@ void doPlayer(void)
 
 		player->texture = pete[0];
 	}
+  static int frame = 0;
 
 	if (app.keyboard[SDL_SCANCODE_I] &&  player->isOnGround)
 	{
 		player->riding = NULL;
 
 		player->dy = -20;
-
+    frame = 0;
     playSound(SND_JUMP, CH_PLAYER);
-	}
+
+    player->texture = pete[0];
+	}else if (player->dy < 0){
+    frame++;
+    player->texture = pete[(frame / 10) % 2];
+  }
 
 	if (app.keyboard[SDL_SCANCODE_SPACE])
 	{
