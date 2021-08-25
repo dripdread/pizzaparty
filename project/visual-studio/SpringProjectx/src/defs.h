@@ -22,7 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define MAX(a,b) (((a)>(b))?(a):(b))
 #define STRNCPY(dest, src, n) strncpy(dest, src, n); dest[n - 1] = '\0'
 
-#define PLATFORM_SPEED 4
+#define PLATFORM_SPEED 6
 #define SCREEN_WIDTH   1280
 #define SCREEN_HEIGHT  720
 
@@ -36,7 +36,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define MAP_RENDER_WIDTH    20
 #define MAP_RENDER_HEIGHT   12
 
-#define PLAYER_MOVE_SPEED 6
+#define PLAYER_MOVE_SPEED 8
 
 #define MAX_NAME_LENGTH        32
 #define MAX_LINE_LENGTH        1024

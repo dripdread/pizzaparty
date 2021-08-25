@@ -43,21 +43,21 @@ void doPlayer(void)
 {
 	player->dx = 0;
 
-	if (app.keyboard[SDL_SCANCODE_A])
+	if (app.keyboard[SDL_SCANCODE_A] || app.keyboard[SDL_SCANCODE_LEFT])
 	{
 		player->dx = -PLAYER_MOVE_SPEED;
 
 		player->texture = pete[1];
 	}
 
-	if (app.keyboard[SDL_SCANCODE_D])
+	if (app.keyboard[SDL_SCANCODE_D] || app.keyboard[SDL_SCANCODE_RIGHT])
 	{
 		player->dx = PLAYER_MOVE_SPEED;
 
 		player->texture = pete[0];
 	}
 
-	if (app.keyboard[SDL_SCANCODE_I] && player->isOnGround)
+	if (app.keyboard[SDL_SCANCODE_SPACE] && player->isOnGround || app.keyboard[SDL_SCANCODE_UP] && player->isOnGround || app.keyboard[SDL_SCANCODE_W] && player->isOnGround)
 	{
 		player->riding = NULL;
 
@@ -66,10 +66,15 @@ void doPlayer(void)
 		playSound(SND_JUMP, CH_PLAYER);
 	}
 
-	if (app.keyboard[SDL_SCANCODE_SPACE])
+	if (app.keyboard[SDL_SCANCODE_R])
 	{
 		player->x = player->y = 0;
 
-		app.keyboard[SDL_SCANCODE_SPACE] = 0;
+		app.keyboard[SDL_SCANCODE_R] = 0;
+	}
+	if (app.keyboard[SDL_SCANCODE_L])
+	{
+		exit(1); 
+
 	}
 }
